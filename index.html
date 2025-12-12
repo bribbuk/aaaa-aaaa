@@ -6,235 +6,219 @@
 <title>Aura Aura</title>
 
 <style>
-  body {
-    background: #262626;
-    color: #ffcc00;
-    margin: 0;
-    padding: 0;
-    line-height: 1.1;
-    font-family: monospace;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-shadow: 0 0 2px #EBFA7A;
-    overflow-x: hidden;
-  }
-
-  h1 {
-    font-weight: 1000;
-    letter-spacing: 1px;
-    margin-top: 30px;
-    text-shadow:
-      0 0 3px #EBFA7A,
-      1px 0 rgba(255,0,80,0.4),
-      -1px 0 rgba(0,190,255,0.4);
-  }
-
-  p.small { font-size: 0.9em; opacity: 0.8; margin-bottom: 20px; }
-  p.bodytext { margin-top: 20px; font-size: 1.3em; }
-
-.divider {
-  border-bottom-color: #ffcc00;
-  opacity: 1;
-  mix-blend-mode: normal;
-  position: relative;
-  z-index: 4;
+body {
+  background:#262626;
+  color:#ffcc00;
+  margin:0;
+  padding:0;
+  line-height:1.1;
+  font-family:monospace;
+  font-weight:800;
+  letter-spacing:0.05em;
+  text-shadow:0 0 2px #EBFA7A;
+  overflow-x:hidden;
 }
 
-  
-  /* ---------------- TYPEOUT ---------------- */
-  .typeout {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    height: 1.4em;
-    width: min(32ch, 100%);
-    font-size: 1.1em;
-    animation:
-      typing 6s steps(60,end) infinite,
-      typeGlitch 3.6s steps(1,end) infinite;
-  }
+h1 {
+  font-weight:1000;
+  letter-spacing:1px;
+  margin-top:30px;
+  text-shadow:
+    0 0 3px #EBFA7A,
+    1px 0 rgba(255,0,80,0.4),
+    -1px 0 rgba(0,190,255,0.4);
+}
 
-  .typeout::after {
-    content: "▉";
-    margin-left: 4px;
-    animation: cursorBlink 0.8s step-end infinite;
-  }
+p.small { font-size:0.9em; opacity:0.8; margin-bottom:20px; }
+p.bodytext { margin-top:20px; font-size:1.3em; }
 
-  @keyframes typing {
-    0%{width:0}
-    40%,90%{width:100%}
-    95%,100%{opacity:0}
-  }
+.divider {
+  border-bottom:1px solid #ffcc00;
+  opacity:1;
+  mix-blend-mode:normal;
+  position:relative;
+  z-index:4;
+}
 
-  @keyframes cursorBlink {
-    0%,50%{opacity:1}
-    50%,100%{opacity:0}
-  }
+/* ---------------- TYPEOUT ---------------- */
+.typeout {
+  display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  height:1.4em;
+  width:min(32ch,100%);
+  font-size:1.1em;
+  animation:
+    typing 6s steps(60,end) infinite,
+    typeGlitch 3.6s steps(1,end) infinite;
+}
 
-  @keyframes typeGlitch {
-    0%,100%{filter:none}
-    18%{filter:blur(0.4px) hue-rotate(15deg)}
-    19%{filter:none}
-    62%{filter:blur(0.6px) contrast(1.4)}
-    63%{filter:none}
-  }
+.typeout::after {
+  content:"▉";
+  margin-left:4px;
+  animation:cursorBlink 0.8s step-end infinite;
+}
 
-  /* ---------------- BUTTON ---------------- */
-  .button {
-    display:inline-block;
-    margin-top:40px;
-    padding:14px 24px;
-    background:#ffcc00;
-    color:#262626;
-    border:2px solid #ffcc00;
-    text-decoration:none;
-    font-weight:bold;
-    animation: buttonFlicker 7s steps(1,end) infinite;
-  }
+@keyframes typing {
+  0%{width:0}
+  40%,90%{width:100%}
+  95%,100%{opacity:0}
+}
 
-  @keyframes buttonFlicker {
-    0%,88%{opacity:1}
-    89%{opacity:0.3}
-    90%{opacity:1}
-    95%{opacity:0}
-    96%{opacity:1}
-  }
+@keyframes cursorBlink {
+  0%,50%{opacity:1}
+  50%,100%{opacity:0}
+}
 
-  /* ---------------- LAYOUT ---------------- */
-  .container {
-    max-width:650px;
-    margin:0 auto;
-    padding:50px;
-    transform:scale(0.88);
-    transform-origin:top center;
-    position:relative;
-    z-index:3;
-    animation: contentJitter 2.8s steps(1,end) infinite;
-    filter:
-      drop-shadow(1px 0 rgba(255,0,80,0.35))
-      drop-shadow(-1px 0 rgba(0,190,255,0.35));
-  }
+@keyframes typeGlitch {
+  0%,100%{filter:none}
+  18%{filter:blur(0.4px) hue-rotate(15deg)}
+  19%{filter:none}
+  62%{filter:blur(0.6px) contrast(1.4)}
+  63%{filter:none}
+}
 
-  @keyframes contentJitter {
-    0%,100%{transform:scale(1.2) translate(0,0)}
-    7%{transform:scale(1.2) translate(-1px,0)}
-    8%{transform:scale(1.2) translate(2px,-1px)}
-    9%{transform:scale(1.2) translate(0,0)}
-    63%{transform:scale(1.2) translate(1px,1px)}
-    64%{transform:scale(1.2) translate(0,0)}
-  }
+/* ---------------- BUTTON ---------------- */
+.button {
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 24px;
+  background:#ffcc00;
+  color:#262626;
+  border:2px solid #ffcc00;
+  text-decoration:none;
+  font-weight:bold;
+  animation:buttonFlicker 7s steps(1,end) infinite;
+}
 
-  /* ---------------- CRT ---------------- */
-  .crt {
-    position:relative;
-    min-height:100vh;
-    overflow:hidden;
-    animation: crtFlicker 0.15s infinite;
-    isolation:isolate;
-  }
+@keyframes buttonFlicker {
+  0%,88%{opacity:1}
+  89%{opacity:0.3}
+  90%{opacity:1}
+  95%{opacity:0}
+  96%{opacity:1}
+}
 
-  @keyframes crtFlicker {
-    0%{opacity:0.96}
-    50%{opacity:1}
-    100%{opacity:0.97}
-  }
+/* ---------------- LAYOUT ---------------- */
+.container {
+  max-width:650px;
+  margin:0 auto;
+  padding:50px;
 
-  .crt::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.03) 0px,
-      rgba(255,255,255,0.03) 1px,
-      rgba(0,0,0,0) 2px
-    );
-    opacity:0.25;
-    pointer-events:none;
-  }
+  /* DESKTOP SCALE */
+  transform:scale(1.2);
+  transform-origin:top center;
 
-  .crt::after {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
-    opacity:0.3;
-    pointer-events:none;
-  }
+  position:relative;
+  z-index:3;
+}
 
-  /* ---------------- GLITCH LAYERS ---------------- */
-  .glitchOverlay,
-  .glitchBars {
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:2;
-  }
+/* JITTER LIVES HERE */
+.jitter {
+  animation:contentJitter 2.8s steps(1,end) infinite;
+  filter:
+    drop-shadow(1px 0 rgba(255,0,80,0.35))
+    drop-shadow(-1px 0 rgba(0,190,255,0.35));
+}
 
-  .glitchOverlay {
-    background:
-      linear-gradient(to right, rgba(255,0,80,0.15), rgba(0,190,255,0.15));
-    opacity:0.25;
-    animation: rgbDrift 2s steps(1,end) infinite;
-  }
+@keyframes contentJitter {
+  0%,100%{transform:translate(0,0)}
+  7%{transform:translate(-1px,0)}
+  8%{transform:translate(2px,-1px)}
+  9%{transform:translate(0,0)}
+  63%{transform:translate(1px,1px)}
+  64%{transform:translate(0,0)}
+}
 
-  @keyframes rgbDrift {
-    0%{transform:none}
-    5%{transform:translate(-2px,0)}
-    6%{transform:translate(3px,0)}
-    7%{transform:none}
-  }
+/* ---------------- CRT ---------------- */
+.crt {
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  animation:crtFlicker 0.15s infinite;
+  isolation:isolate;
+}
 
-  .glitchBars {
-    background:repeating-linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 0px,
-      rgba(0,0,0,0) 30px,
-      rgba(255,255,255,0.08) 31px,
-      rgba(0,0,0,0) 42px
-    );
-    animation: tearRoll 2.8s linear infinite;
-    opacity:0.9;
-  }
+@keyframes crtFlicker {
+  0%{opacity:0.96}
+  50%{opacity:1}
+  100%{opacity:0.97}
+}
 
-  @keyframes tearRoll {
-    0%{transform:translateY(-10%)}
-    100%{transform:translateY(10%)}
-  }
+.crt::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    rgba(0,0,0,0) 2px
+  );
+  opacity:0.25;
+  pointer-events:none;
+}
 
-  /* ---------------- DESYNC SLICE ---------------- */
-  .desync::after {
-    content:"";
-    position:absolute;
-    left:-5%;
-    width:110%;
-    height:18px;
-    top:35%;
-    background:rgba(255,204,0,0.08);
-    opacity:0;
-    animation: desyncSlice 5.4s steps(1,end) infinite;
-    pointer-events:none;
-  }
+.crt::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle, rgba(255,255,255,0.05), rgba(0,0,0,0.85));
+  opacity:0.3;
+  pointer-events:none;
+}
 
-  @keyframes desyncSlice {
-    0%,61%{opacity:0}
-    62%{opacity:1;transform:translateX(-14px)}
-    63%{opacity:1;transform:translateX(18px)}
-    64%{opacity:0}
-  }
+/* ---------------- GLITCH LAYERS ---------------- */
+.glitchOverlay,
+.glitchBars {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
 
-  /* ---------------- MOBILE ---------------- */
-  @media(max-width:600px){
-    body{font-size:8px}
-    .container{
-    transform: scale(0.88);   /* 👈 THIS IS THE FIX */
-    transform-origin: top center;
-    padding: 20px;
+.glitchOverlay {
+  background:linear-gradient(to right, rgba(255,0,80,0.15), rgba(0,190,255,0.15));
+  opacity:0.25;
+  animation:rgbDrift 2s steps(1,end) infinite;
+}
+
+@keyframes rgbDrift {
+  0%{transform:none}
+  5%{transform:translate(-2px,0)}
+  6%{transform:translate(3px,0)}
+  7%{transform:none}
+}
+
+.glitchBars {
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 30px,
+    rgba(255,255,255,0.08) 31px,
+    rgba(0,0,0,0) 42px
+  );
+  animation:tearRoll 2.8s linear infinite;
+  opacity:0.9;
+}
+
+@keyframes tearRoll {
+  0%{transform:translateY(-10%)}
+  100%{transform:translateY(10%)}
+}
+
+/* ---------------- MOBILE ---------------- */
+@media(max-width:600px){
+  body{font-size:8px}
+
+  .container{
+    transform:scale(0.82);   /* THIS NOW WORKS */
+    padding:20px;
   }
-  }
+}
 </style>
 </head>
-
+  
 <body>
 <div class="scale-container">
   <div class="crt">
