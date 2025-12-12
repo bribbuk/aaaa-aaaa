@@ -207,21 +207,68 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
   100%{transform:translateY(10%)}
 }
 
+/* ---------------- BOOT GLITCH FLASH ---------------- */
+.bootFlash {
+  position:absolute;
+  inset:0;
+  z-index:999;
+  pointer-events:none;
+  mix-blend-mode:screen;
+
+  background:linear-gradient(
+    to right,
+    rgba(255,0,80,0.25),
+    rgba(0,190,255,0.25)
+  );
+
+  opacity:0;
+  animation:bootFlash 420ms steps(1,end) forwards;
+}
+
+@keyframes bootFlash {
+  0% {
+    opacity:0;
+    filter:none;
+  }
+  8% {
+    opacity:1;
+    filter:contrast(1.8) brightness(1.4);
+  }
+  14% {
+    opacity:0.2;
+    filter:blur(0.6px) hue-rotate(20deg);
+  }
+  22% {
+    opacity:1;
+    filter:contrast(2.2);
+  }
+  35% {
+    opacity:0.05;
+    filter:none;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
 /* ---------------- MOBILE ---------------- */
 @media(max-width:600px){
   body{font-size:8.5px}
 
   .container{
-    transform:scale(1);   /* THIS NOW WORKS */
+    transform:scale(1);
     padding:20px;
   }
 }
 </style>
 </head>
-  
+
 <body>
 <div class="scale-container">
   <div class="crt">
+
+    <!-- BOOT FLASH -->
+    <div class="bootFlash"></div>
 
     <div class="glitchOverlay"></div>
     <div class="glitchBars"></div>
@@ -233,15 +280,16 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
       <div style="height:5px"></div>
       <p class="small desync">Open-Ref Decrypted Holohexagraph "Extrinsic Blurb, Aura Aura"</p>
 
-     <div style="height:60px"></div>
-      
+      <div style="height:60px"></div>
+
       <h1 class="desync">Ā͡ųͫͥ̀͂̾̈ŕ̵̉̄ͩ̓̋̒҉̛a̡̐̏̍͟ ̧̌ͤ͂͊́͟Ä̵̴́̂ͥ̎ͥ̓̇ǘ̵̽ͮ̓ͩ̊̃ͮ͊͘r̸̸̢̓̑̾͐̉̓̒͊ȃ̅ͥ͊ͣ̂̍ͫ̀̕͜,̆̃̃̑͌͆́̓ ͫ̐͛ͤ͋̔,̵̨̓ ̈͂̊͊̿͢,ͯͤ͒ͭ͋̔ͫͫ͟͡ ̧̾̄͗̾ͨ̚͜,̒̈̀͌͋̃̕͞ ̢̈́̅̌̉ͩ̄̾̑̀,̧̈͌͑̏͊͒͡ ̢͊͛̆͂̀,̨ͧͬ͗͝</h1>
 
-      <p class="bodytext">Third Edition, 2198<br>Published by t̵̗h̬̘̞͔̖̥͉͟e ̝͓̦̠Ḿ̦̮̰̗o̸͕̩̩̹͇̝̭d̟̻̝e̡̥̯͔̤͖r̗̳̣̗̠ni̹̩͟s̰̙̘̗̱t͇̳͓͠ͅͅ ̧̥̙̫̝̤̭R̢e̝͓͜ṋa̷͖͍͍̼͖̦̖i̹̙̳̖͓̘̻s͍̰̙̠̀s̖͎̙̟̥͉̬aṇ̛̙̺ce̴̬̻̺͓̱̥͔ ̱̙̦̱̞͔ͅC̞̙̯̣̬o̧͎̼̖͚̗̹̜o͏͓̖̬p̪͙͙̫e̦̥͕r͓̲̘̖̼ͅa̫͇͖͢t͇̘̫̟͚i̛̖̟̥v͍̻͓ͅe̤̩͠ͅ,̳͇̳̥ ͎̫͍͕̬̕Fi̤̻̺̮̤̖ṋ̸̝̺̟̜͍n͈s̫̞b̷̤u̵r̬̳͞y̯̣̘,̙ ͓̖̮̱̖̥G̰̥͉̹̲͟a҉̖̺̭͍̹͍̬n͈̲̩̪y̱͔̖̲͍͔͡m̹̙̲̲̯̤̦ed̵̖͓̙̠͙e̙̙͝</p>
+      <p class="bodytext">Third Edition, 2198<br>
+      Published by t̵̗h̬̘̞͔̖̥͉͟e ̝͓̦̠Ḿ̦̮̰̗o̸͕̩̩̹͇̝̭d̟̻̝e̡̥̯͔̤͖r̗̳̣̗̠ni̹̩͟s̰̙̘̗̱t͇̳͓͠ͅͅ ̧̥̙̫̝̤̭R̢e̝͓͜ṋa̷͖͍͍̼͖̦̖i̹̙̳̖͓̘̻s͍̰̙̠̀s̖͎̙̟̥͉̬aṇ̛̙̺ce̴̬̻̺͓̱̥͔ ̱̙̦̱̞͔ͅC̞̙̯̣̬o̧͎̼̖͚̗̹̜o͏͓̖̬p̪͙͙̫e̦̥͕r͓̲̘̖̼ͅa̫͇͖͢t͇̘̫̟͚i̛̖̟̥v͍̻͓ͅe̤̩͠ͅ,̳͇̳̥ ͎̫͍͕̬̕Fi̤̻̺̮̤̖ṋ̸̝̺̟̜͍n͈s̫̞b̷̤u̵r̬̳͞y̯̣̘,̙ ͓̖̮̱̖̥G̰̥͉̹̲͟a҉̖̺̭͍̹͍̬n͈̲̩̪y̱͔̖̲͍͔͡m̹̙̲̲̯̤̦ed̵̖͓̙̠͙e̙̙͝</p>
 
       <div style="height:80px"></div>
-      
-      <p class="typeout">▉ ▉ ▉ Aurasilk Braid [NULL] </p>
+
+      <p class="typeout">▉ ▉ ▉ Aurasilk Braid [NULL]</p>
 
       <div style="height:120px"></div>
 
