@@ -226,7 +226,11 @@
   /* ---------------- MOBILE ---------------- */
   @media(max-width:600px){
     body{font-size:8px}
-    .container{transform:none;padding:20px}
+    .container{
+    transform: scale(0.88);   /* 👈 THIS IS THE FIX */
+    transform-origin: top center;
+    padding: 20px;
+  }
   }
 </style>
 </head>
