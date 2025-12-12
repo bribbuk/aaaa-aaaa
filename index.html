@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Aura Aura</title>
 
 <style>
@@ -78,56 +79,15 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
   63%{filter:none}
 }
 
-/* ---------------- BUTTON ---------------- */
-.button {
-  display:inline-block;
-  margin-top:40px;
-  padding:14px 24px;
-  background:#ffcc00;
-  color:#262626;
-  border:2px solid #ffcc00;
-  text-decoration:none;
-  font-weight:bold;
-  animation:buttonFlicker 7s steps(1,end) infinite;
-}
-
-@keyframes buttonFlicker {
-  0%,88%{opacity:1}
-  89%{opacity:0.3}
-  90%{opacity:1}
-  95%{opacity:0}
-  96%{opacity:1}
-}
-
 /* ---------------- LAYOUT ---------------- */
 .container {
   max-width:650px;
   margin:0 auto;
   padding:50px;
-
-  /* DESKTOP SCALE */
   transform:scale(1.2);
   transform-origin:top center;
-
   position:relative;
   z-index:3;
-}
-
-/* JITTER LIVES HERE */
-.jitter {
-  animation:contentJitter 2.8s steps(1,end) infinite;
-  filter:
-    drop-shadow(1px 0 rgba(255,0,80,0.35))
-    drop-shadow(-1px 0 rgba(0,190,255,0.35));
-}
-
-@keyframes contentJitter {
-  0%,100%{transform:translate(0,0)}
-  7%{transform:translate(-1px,0)}
-  8%{transform:translate(2px,-1px)}
-  9%{transform:translate(0,0)}
-  63%{transform:translate(1px,1px)}
-  64%{transform:translate(0,0)}
 }
 
 /* ---------------- CRT ---------------- */
@@ -207,51 +167,30 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
   100%{transform:translateY(10%)}
 }
 
-/* ---------------- BOOT GLITCH FLASH ---------------- */
+/* ---------------- BOOT GLITCH FLASH (SAFE) ---------------- */
 .bootFlash {
   position:absolute;
   inset:0;
   z-index:999;
   pointer-events:none;
   mix-blend-mode:screen;
-
-  background:rgba(235, 200, 80, 0.85)
-
+  background:rgba(235, 200, 80, 0.85);
   opacity:0;
   animation:bootFlash 420ms steps(1,end) forwards;
 }
 
-
 @keyframes bootFlash {
-  0% {
-    opacity:0;
-    filter:none;
-  }
-  8% {
-    opacity:1;
-    filter:contrast(1.8) brightness(1.4);
-  }
-  14% {
-    opacity:0.2;
-    filter:blur(0.6px) hue-rotate(20deg);
-  }
-  22% {
-    opacity:1;
-    filter:contrast(2.2);
-  }
-  35% {
-    opacity:0.05;
-    filter:none;
-  }
-  100% {
-    opacity:0;
-  }
+  0%   { opacity:0; }
+  4%   { opacity:0.3; }
+  8%   { opacity:0.85; filter:contrast(1.4) brightness(1.2); }
+  18%  { opacity:0.25; }
+  28%  { opacity:0.6; }
+  100% { opacity:0; filter:none; }
 }
 
 /* ---------------- MOBILE ---------------- */
 @media(max-width:600px){
   body{font-size:8.5px}
-
   .container{
     transform:scale(1);
     padding:20px;
@@ -264,9 +203,7 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
 <div class="scale-container">
   <div class="crt">
 
-    <!-- BOOT FLASH -->
     <div class="bootFlash"></div>
-
     <div class="glitchOverlay"></div>
     <div class="glitchBars"></div>
 
@@ -279,10 +216,12 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
 
       <div style="height:60px"></div>
 
-      <h1 class="desync">Ā͡ųͫͥ̀͂̾̈ŕ̵̉̄ͩ̓̋̒҉̛a̡̐̏̍͟ ̧̌ͤ͂͊́͟Ä̵̴́̂ͥ̎ͥ̓̇ǘ̵̽ͮ̓ͩ̊̃ͮ͊͘r̸̸̢̓̑̾͐̉̓̒͊ȃ̅ͥ͊ͣ̂̍ͫ̀̕͜,̆̃̃̑͌͆́̓ ͫ̐͛ͤ͋̔,̵̨̓ ̈͂̊͊̿͢,ͯͤ͒ͭ͋̔ͫͫ͟͡ ̧̾̄͗̾ͨ̚͜,̒̈̀͌͋̃̕͞ ̢̈́̅̌̉ͩ̄̾̑̀,̧̈͌͑̏͊͒͡ ̢͊͛̆͂̀,̨ͧͬ͗͝</h1>
+      <h1 class="desync">Ā͡ųͫͥ̀͂̾̈ŕ̵̉̄ͩ̓̋̒҉̛a̡̐̏̍͟ ̧̌ͤ͂͊́͟Ä̵̴́̂ͥ̎ͥ̓̇ǘ̵̽ͮ̓ͩ̊̃ͮ͊͘r̸̸̢̓̑̾͐̉̓̒͊ȃ̅ͥ͊ͣ̂̍ͫ̀̕͜,̆̃̃̑͌͆́̓ ͫ̐͛ͤ͋̔,̵̨̓ ̈͂̊͊̿͢,ͯͤ͒ͭ͋̔ͫͫ͟͡</h1>
 
-      <p class="bodytext">Third Edition, 2198<br>
-      Published by t̵̗h̬̘̞͔̖̥͉͟e ̝͓̦̠Ḿ̦̮̰̗o̸͕̩̩̹͇̝̭d̟̻̝e̡̥̯͔̤͖r̗̳̣̗̠ni̹̩͟s̰̙̘̗̱t͇̳͓͠ͅͅ ̧̥̙̫̝̤̭R̢e̝͓͜ṋa̷͖͍͍̼͖̦̖i̹̙̳̖͓̘̻s͍̰̙̠̀s̖͎̙̟̥͉̬aṇ̛̙̺ce̴̬̻̺͓̱̥͔ ̱̙̦̱̞͔ͅC̞̙̯̣̬o̧͎̼̖͚̗̹̜o͏͓̖̬p̪͙͙̫e̦̥͕r͓̲̘̖̼ͅa̫͇͖͢t͇̘̫̟͚i̛̖̟̥v͍̻͓ͅe̤̩͠ͅ,̳͇̳̥ ͎̫͍͕̬̕Fi̤̻̺̮̤̖ṋ̸̝̺̟̜͍n͈s̫̞b̷̤u̵r̬̳͞y̯̣̘,̙ ͓̖̮̱̖̥G̰̥͉̹̲͟a҉̖̺̭͍̹͍̬n͈̲̩̪y̱͔̖̲͍͔͡m̹̙̲̲̯̤̦ed̵̖͓̙̠͙e̙̙͝</p>
+      <p class="bodytext">
+        Third Edition, 2198<br>
+        Published by the Modernist Renaissance Cooperative, Finnsbury, Ganymede
+      </p>
 
       <div style="height:80px"></div>
 
