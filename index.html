@@ -215,15 +215,12 @@ p.bodytext { margin-top:20px; font-size:1.3em; }
   pointer-events:none;
   mix-blend-mode:screen;
 
-  background:linear-gradient(
-    to right,
-    rgba(255,0,80,0.25),
-    rgba(0,190,255,0.25)
-  );
+  background:rgba(255, 204, 0, 0.85); /* CRT yellow */
 
   opacity:0;
   animation:bootFlash 420ms steps(1,end) forwards;
 }
+
 
 @keyframes bootFlash {
   0% {
